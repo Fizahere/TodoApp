@@ -24,19 +24,17 @@ const TodoApp = () => {
       setErr("Fill the fields first.");
       return;
     }
-if(isEdit){
-  
-}
-    // if (isEdit) {
-    //   const updatedTasks = allTask.map((t, index) =>
-    //     index === editId ? { ...t, task, desc } : t
-    //   );
-    //   setAllTask(updatedTasks);
-    //   setIsEdit(false);
-    //   setEditId(null);
-    // } else {
+
+    if (isEdit) {
+      const updatedTasks = allTask.map((t, index) =>
+        index === editId ? { ...t, task, desc } : t
+      );
+      setAllTask(updatedTasks);
+      setIsEdit(false);
+      setEditId(null);
+    } else {
       setAllTask([...allTask, { task, desc, isFav }]);
-    // }
+    }
 
     setTask("");
     setDesc("");
@@ -49,13 +47,13 @@ if(isEdit){
     }
   };
 
-  // const editTaskHandler = (id) => {
-  //   const taskToEdit = allTask[id];
-  //   setTask(taskToEdit.task);
-  //   setDesc(taskToEdit.desc);
-  //   setIsEdit(true);
-  //   setEditId(id);
-  // };
+  const editTaskHandler = (id) => {
+    const taskToEdit = allTask[id];
+    setTask(taskToEdit.task);
+    setDesc(taskToEdit.desc);
+    setIsEdit(true);
+    setEditId(id);
+  };
 
   const addTaskToFavHandler = (id) => {
     const updatedTasks = allTask.map((task, index) =>
